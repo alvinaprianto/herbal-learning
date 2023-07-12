@@ -60,8 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   loadModel() async {
     await Tflite.loadModel(
-        model: 'assets/tf/modeltanamanherbal.tflite',
-        labels: 'assets/tf/labels.txt');
+        model: 'assets/tf/model_unquant.tflite',
+        labels: 'assets/tf/labels2.txt');
   }
 
   @override

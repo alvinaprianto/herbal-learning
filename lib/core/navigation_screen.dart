@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hele/features/article/screens/article_screen.dart';
+import 'package:hele/core/constants/color_constant.dart';
 import 'package:hele/features/detection/screens/scan_screen.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({super.key});
@@ -13,21 +16,16 @@ class _NavigationScreenState extends State<NavigationScreen> {
   late PageController _myPage;
 
   final List<Widget> _widgetOptions = [
-    const ScanScreen(title: "hele"),
-    const ScanScreen(title: "hele"),    
+    const ArticleScreen(),
+    const Scaffold(
+      body: Center(child: Text("Coming Soon")),
+    ),
   ];
 
   @override
   void initState() {
     super.initState();
-    // setState(() {
-    //   if (widget.param != null) {
-    //     _currentIndex = widget.param!.selectedIndex;
-    //     _myPage = PageController(initialPage: widget.param!.selectedIndex);
-    //   } else {
-    //     _myPage = PageController(initialPage: 0);
-    //   }
-    // });
+    _myPage = PageController();
   }
 
   @override
@@ -45,137 +43,70 @@ class _NavigationScreenState extends State<NavigationScreen> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Column(
-                children: [
-                  IconButton(
-                    iconSize: 30.0,
-                    icon: ImageIcon(
-                      Svg(
-                        IconConstants.home,
+              Padding(
+                padding: const EdgeInsets.only(left: 30),
+                child: Column(
+                  children: [
+                    IconButton(
+                      iconSize: 30.0,
+                      icon: ImageIcon(
+                        Svg(
+                          "assets/images/article.svg",
+                        ),
+                        color: _currentIndex == 0
+                            ? ColorConstant.primaryColor
+                            : Colors.grey,
                       ),
-                      color: _currentIndex == 0
-                          ? ColorConstants.primaryColor
-                          : ColorConstants.darkGrey,
+                      onPressed: () {
+                        setState(() {
+                          _myPage.jumpToPage(0);
+                        });
+                      },
                     ),
-                    // Icon(
-                    //   Icons.home_outlined,
-                    // color: _currentIndex == 0 ? primaryColor : Colors.white,
-                    // ),
-                    onPressed: () {
-                      setState(() {
-                        _myPage.jumpToPage(0);
-                      });
-                    },
-                  ),
-                  Text(
-                    "Home",
-                    style: _currentIndex == 0
-                        ? Theme.of(context)
-                            .textTheme
-                            .bodySmall!
-                            .copyWith(color: ColorConstants.primaryColor)
-                        : Theme.of(context).textTheme.bodySmall,
-                  )
-                ],
+                    Text(
+                      "Article",
+                      style: _currentIndex == 0
+                          ? Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(color: ColorConstant.primaryColor)
+                          : Theme.of(context).textTheme.bodySmall,
+                    )
+                  ],
+                ),
               ),
-              Column(
-                children: [
-                  IconButton(
-                    iconSize: 30.0,
-                    icon: ImageIcon(
-                      Svg(
-                        IconConstants.exchange,
+              Padding(
+                padding: const EdgeInsets.only(right: 30),
+                child: Column(
+                  children: [
+                    IconButton(
+                      iconSize: 30.0,
+                      icon: ImageIcon(
+                        Svg(
+                          "assets/images/recipe.svg",
+                        ),
+                        color: _currentIndex == 1
+                            ? ColorConstant.primaryColor
+                            : Colors.grey,
                       ),
-                      color: _currentIndex == 1
-                          ? ColorConstants.primaryColor
-                          : ColorConstants.darkGrey,
+                      onPressed: () {
+                        setState(() {
+                          _myPage.jumpToPage(1);
+                        });
+                      },
                     ),
-                    onPressed: () {
-                      setState(() {
-                        _myPage.jumpToPage(1);
-                      });
-                    },
-                  ),
-                  Text(
-                    "Exchange",
-                    style: _currentIndex == 1
-                        ? Theme.of(context)
-                            .textTheme
-                            .bodySmall!
-                            .copyWith(color: ColorConstants.primaryColor)
-                        : Theme.of(context).textTheme.bodySmall,
-                  )
-                ],
+                    Text(
+                      "Recipe",
+                      style: _currentIndex == 1
+                          ? Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(color: ColorConstant.primaryColor)
+                          : Theme.of(context).textTheme.bodySmall,
+                    )
+                  ],
+                ),
               ),
-              const SizedBox(
-                height: 28,
-              ),
-              Column(
-                children: [
-                  IconButton(
-                    iconSize: 30.0,
-                    icon: ImageIcon(
-                      Svg(
-                        IconConstants.wallet,
-                      ),
-                      color: _currentIndex == 2
-                          ? ColorConstants.primaryColor
-                          : ColorConstants.darkGrey,
-                    ),
-                    // icon: Image(
-                    //   image: const Svg(icNavFocuse, size: Size(25, 25)),
-                    //   color: _currentIndex == 2 ? primaryColor : Colors.white,
-                    // ),
-                    onPressed: () {
-                      setState(() {
-                        _myPage.jumpToPage(2);
-                      });
-                    },
-                  ),
-                  Text(
-                    "Wallet",
-                    style: _currentIndex == 2
-                        ? Theme.of(context)
-                            .textTheme
-                            .bodySmall!
-                            .copyWith(color: ColorConstants.primaryColor)
-                        : Theme.of(context).textTheme.bodySmall,
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  IconButton(
-                    iconSize: 30.0,
-                    icon: ImageIcon(
-                      Svg(
-                        IconConstants.profile,
-                      ),
-                      color: _currentIndex == 3
-                          ? ColorConstants.primaryColor
-                          : ColorConstants.darkGrey,
-                    ),
-                    // icon: Image(
-                    //   image: const Svg(icNavProfile, size: Size(25, 25)),
-                    //   color: _currentIndex == 3 ? primaryColor : Colors.white,
-                    // ),
-                    onPressed: () {
-                      setState(() {
-                        _myPage.jumpToPage(3);
-                      });
-                    },
-                  ),
-                  Text(
-                    "Profile",
-                    style: _currentIndex == 3
-                        ? Theme.of(context)
-                            .textTheme
-                            .bodySmall!
-                            .copyWith(color: ColorConstants.primaryColor)
-                        : Theme.of(context).textTheme.bodySmall,
-                  )
-                ],
-              )
             ],
           ),
         ),
@@ -189,68 +120,26 @@ class _NavigationScreenState extends State<NavigationScreen> {
           }),
           physics: const NeverScrollableScrollPhysics(),
           children: _widgetOptions),
-      // body: _widgetOptions.elementAt(_currentIndex),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: _currentIndex,
-      //   showSelectedLabels: true,
-      //   showUnselectedLabels: true,
-      //   selectedItemColor: ColorConstants.primaryColor,
-      //   unselectedItemColor: ColorConstants.darkGrey,
-      //   items: const [
-      //     BottomNavigationBarItem(
-      // icon: ImageIcon(
-      //   Svg(
-      //     IconConstants.home,
-      //   ),
-      // ),
-      //         label: "Home"),
-      //     BottomNavigationBarItem(
-      //         icon: ImageIcon(
-      //           Svg(
-      //             IconConstants.exchange,
-      //           ),
-      //         ),
-      //         label: "Exchange"),
-      //     BottomNavigationBarItem(
-      //         icon: ImageIcon(
-      //           Svg(
-      //             IconConstants.wallet,
-      //           ),
-      //         ),
-      //         label: "Wallet"),
-      //     BottomNavigationBarItem(
-      //         icon: ImageIcon(
-      //           Svg(
-      //             IconConstants.profile,
-      //           ),
-      //         ),
-      //         label: "Profile"),
-      //   ],
-      //   onTap: (index) {
-      //     setState(() {
-      //       _currentIndex = index;
-      //     });
-      //   },
-      // ),
       floatingActionButton: SizedBox(
         height: 65.0,
         width: 65.0,
         child: FittedBox(
           child: FloatingActionButton(
             tooltip: "Miner",
-            backgroundColor: ColorConstants.primaryColor,
+            backgroundColor: ColorConstant.primaryColor,
             onPressed: () {
-              Navigator.of(context).pushNamed("activeminerscreen");
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => ScanScreen(title: "Hele")));
             },
-            child: Image.asset(
-              ImageConstants.miner,
-              height: 30,
+            child: ImageIcon(
+              Svg(
+                "assets/images/scan.svg",
+              ),
+              color: Colors.white,
             ),
-            // elevation: 5.0,
           ),
         ),
       ),
     );
   }
-
 }

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:hele/core/constants/color_constant.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 import 'package:flutter/material.dart';
@@ -78,126 +79,125 @@ class _ScanScreenState extends State<ScanScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0x004242),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 50,
-            ),
-            Text(
-              'Geeky Bawa',
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              'Cats and Dogs Detector',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-                fontSize: 30,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                child: Image.asset(
+                  "assets/images/logo2.png",
+                  width: MediaQuery.of(context).size.width * 0.2,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Center(
-              child: _loading
-                  ? Container(
-                      width: 350,
-                      child: Column(
-                        children: [
-                          Image.asset('assets/tf/cat_dog_icon.png'),
-                          SizedBox(
-                            height: 50,
-                          )
-                        ],
-                      ),
-                    )
-                  : Container(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 250,
-                            child: Image.file(_image),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            '${_output[0]['label']}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
+              const SizedBox(
+                height: 12,
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Center(
+                child: _loading
+                    ? Container(
+                        width: 350,
+                        child: Column(
+                          children: [
+                            Image.asset('assets/images/holder_image.png'),
+                            SizedBox(
+                              height: 50,
+                            )
+                          ],
+                        ),
+                      )
+                    : Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 350,
+                              child: Image.file(_image),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          )
-                        ],
-                      ),
-                    ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      pickImage();
-                    },
-                    child: Container(
-                      width: MediaQuery.of(context).size.width - 250,
-                      alignment: Alignment.center,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 18),
-                      decoration: BoxDecoration(
-                        color: Colors.redAccent,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Text(
-                        'Capture a Photo',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              '${_output[0]['label']}',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            )
+                          ],
                         ),
                       ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      pickGalleryImage();
-                    },
-                    child: Container(
-                      width: MediaQuery.of(context).size.width - 250,
-                      alignment: Alignment.center,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 18),
-                      decoration: BoxDecoration(
-                        color: Colors.redAccent,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Text(
-                        'Select a Photo',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
               ),
-            )
-          ],
+              Container(
+                margin: EdgeInsets.only(top: 40),
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        pickImage();
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        alignment: Alignment.center,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 14),
+                        decoration: BoxDecoration(
+                          color: ColorConstant.primaryColor,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          'Capture a Photo',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    Text("Or"),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        pickGalleryImage();
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        alignment: Alignment.center,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 14),
+                        decoration: BoxDecoration(
+                          color: ColorConstant.primaryColor,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          'Select a Photo',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

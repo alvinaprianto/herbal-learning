@@ -79,34 +79,44 @@ class _ScanScreenState extends State<ScanScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(_output.toString() + "TEST");
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          leadingWidth: 30,
+          title: const Text(
+            "Scan",
+            style: TextStyle(color: Colors.black),
+          ),
+          elevation: 1.5,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_sharp,
+              color: Colors.black,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          backgroundColor: Colors.white,
+        ),
         backgroundColor: Colors.white,
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-                child: Image.asset(
-                  "assets/images/logo2.png",
-                  width: MediaQuery.of(context).size.width * 0.2,
-                ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              SizedBox(
-                height: 50,
-              ),
               Center(
                 child: _loading
                     ? Container(
                         width: 350,
+                        height: 300,
                         child: Column(
                           children: [
-                            Image.asset('assets/images/holder_image.png'),
+                            Image.asset(
+                              'assets/images/holder_image.png',
+                              fit: BoxFit.cover,
+                            ),
                             SizedBox(
                               height: 50,
                             )
@@ -118,13 +128,19 @@ class _ScanScreenState extends State<ScanScreen> {
                           children: [
                             Container(
                               width: 350,
-                              child: Image.file(_image),
+                              height: 300,
+                              child: Image.file(
+                                _image,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             SizedBox(
                               height: 20,
                             ),
                             Text(
-                              '${_output[0]['label']}',
+                              _output.length == 0
+                                  ? "Unclassified image. Please try again"
+                                  : '${_output[0]['label']}',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 15,

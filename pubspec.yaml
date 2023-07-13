@@ -38,10 +38,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   image_picker: ^0.8.0+3
-  tflite: ^1.1.2
-  lottie: ^2.4.0
   shimmer: ^3.0.0
+  tflite: ^1.1.2
+  flutter_launcher_icons: ^0.13.1
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo_launcher.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
@@ -58,6 +62,7 @@ flutter:
     - assets/tf/modeltanamanherbal.tflite
     - assets/tf/labels.txt
     - assets/images/
+    - assets/icons/
     # - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

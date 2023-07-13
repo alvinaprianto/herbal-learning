@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hele/core/about/screens/about_navigation_screen.dart';
+import 'package:hele/core/constants/icon_constant.dart';
+import 'package:hele/core/home/screens/home_navigation_screen.dart';
 import 'package:hele/features/article/screens/article_screen.dart';
 import 'package:hele/core/constants/color_constant.dart';
 import 'package:hele/features/detection/screens/scan_screen.dart';
@@ -16,10 +19,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
   late PageController _myPage;
 
   final List<Widget> _widgetOptions = [
-    const ArticleScreen(),
-    const Scaffold(
-      body: Center(child: Text("Coming Soon")),
-    ),
+    const HomeNavigationScreen(),
+    const AboutNavigationScreen()
   ];
 
   @override
@@ -51,7 +52,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                       iconSize: 30.0,
                       icon: ImageIcon(
                         Svg(
-                          "assets/images/article.svg",
+                          IconConstant.homeNavigation,
                         ),
                         color: _currentIndex == 0
                             ? ColorConstant.primaryColor
@@ -64,7 +65,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                       },
                     ),
                     Text(
-                      "Article",
+                      "Home",
                       style: _currentIndex == 0
                           ? Theme.of(context)
                               .textTheme
@@ -82,9 +83,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                     IconButton(
                       iconSize: 30.0,
                       icon: ImageIcon(
-                        Svg(
-                          "assets/images/recipe.svg",
-                        ),
+                        Svg(IconConstant.aboutAppNavigation),
                         color: _currentIndex == 1
                             ? ColorConstant.primaryColor
                             : Colors.grey,
@@ -96,7 +95,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                       },
                     ),
                     Text(
-                      "Recipe",
+                      "About",
                       style: _currentIndex == 1
                           ? Theme.of(context)
                               .textTheme
@@ -133,7 +132,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
             },
             child: ImageIcon(
               Svg(
-                "assets/images/scan.svg",
+                IconConstant.scan,
               ),
               color: Colors.white,
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hele/features/article/screens/article_detail_screen.dart';
 import 'package:hele/features/article/widgets/article_widget.dart';
 import 'package:shimmer/shimmer.dart';
 import '../models/article_model.dart';
@@ -16,36 +17,48 @@ class _ArticleScreenState extends State<ArticleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.only(bottom: 100),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-                child: Image.asset(
-                  "assets/images/logo2.png",
-                  width: MediaQuery.of(context).size.width * 0.2,
-                ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              SizedBox(
-                height: MediaQuery.sizeOf(context).height,
-                child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 5,
-                  itemBuilder: ((context, index) {
-                    return CardArtikel(
-                      data: _information[index],
-                    );
-                  }),
-                ),
-              ),
-            ],
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leadingWidth: 30,
+        title: const Text(
+          "Artikel",
+          style: TextStyle(color: Colors.black),
+        ),
+        elevation: 1.5,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_sharp,
+            color: Colors.black,
           ),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        backgroundColor: Colors.white,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 32),
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 5,
+                itemBuilder: ((context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => ArticleDetailScreen(
+                              source: _information[index].sumber)));
+                    },
+                    child: CardArtikel(
+                      data: _information[index],
+                    ),
+                  );
+                }),
+              ),
+            ),
+          ],
         ),
       ),
     );

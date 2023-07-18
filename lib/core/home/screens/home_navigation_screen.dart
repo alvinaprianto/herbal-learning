@@ -3,6 +3,10 @@ import 'package:hele/core/constants/color_constant.dart';
 import 'package:hele/core/constants/icon_constant.dart';
 import 'package:hele/core/constants/image_constant.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
+import 'package:hele/features/article/screens/article_screen.dart';
+import 'package:hele/features/cultivation_menu/screens/cultivation_screen.dart';
+import 'package:hele/features/panduan/screens/panduan_screen.dart';
+import 'package:hele/features/pengolahan/screens/pengolahan_screen.dart';
 
 import '../../../features/article/models/article_model.dart';
 import '../../../features/article/widgets/article_widget.dart';
@@ -17,9 +21,9 @@ class HomeNavigationScreen extends StatefulWidget {
 class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
   final _information = informasi;
   final mapMenu = {
-    IconConstant.cultivationMenu: "Cultivation",
-    IconConstant.quizMenu: "Quiz",
-    IconConstant.recipesMenu: "Recipes",
+    IconConstant.cultivationMenu: "Olah Tanaman",
+    IconConstant.quizMenu: "Macam Tanaman",
+    IconConstant.recipesMenu: "Panduan Aplikasi",
   };
 
   @override
@@ -95,38 +99,61 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
                   mapMenu.length,
-                  (index) => Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 60,
-                            height: 60,
-                            margin: EdgeInsets.only(bottom: 10),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: ColorConstant.primaryColor
-                                        .withOpacity(0.1),
-                                    blurRadius: 10,
-                                    offset: Offset(0, 3),
-                                  ),
-                                ]),
-                            child: Image(
-                                width: 32,
-                                height: 32,
-                                image: Svg(mapMenu.keys.elementAt(index))),
+                  (index) => GestureDetector(
+                        onTap: () {
+                          if (mapMenu.values.elementAt(index) ==
+                              "Panduan Aplikasi") {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => OnBoardingScreen()));
+                          } else if (mapMenu.values.elementAt(index) ==
+                              "Macam Tanaman") {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => CultivationScreen()));
+                          } else {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => PengolahanScreen()));
+                          }
+                        },
+                        child: Container(
+                          width: 60,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 60,
+                                height: 60,
+                                margin: EdgeInsets.only(bottom: 10),
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: ColorConstant.primaryColor
+                                            .withOpacity(0.1),
+                                        blurRadius: 10,
+                                        offset: Offset(0, 3),
+                                      ),
+                                    ]),
+                                child: Image(
+                                    width: 32,
+                                    height: 32,
+                                    image: Svg(mapMenu.keys.elementAt(index))),
+                              ),
+                              Text(
+                                mapMenu.values.elementAt(index),
+                                maxLines: 2,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 13, fontWeight: FontWeight.w500),
+                              )
+                            ],
                           ),
-                          Text(
-                            mapMenu.values.elementAt(index),
-                            style: TextStyle(
-                                fontSize: 13, fontWeight: FontWeight.w500),
-                          )
-                        ],
+                        ),
                       )),
             ),
           ),
@@ -143,15 +170,21 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Herb Articles",
+                  "Artikel",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
-                Text(
-                  "See All",
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: ColorConstant.primaryColor),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ArticleScreen()));
+                  },
+                  child: Text(
+                    "Lihat Semua",
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: ColorConstant.primaryColor),
+                  ),
                 )
               ],
             ),

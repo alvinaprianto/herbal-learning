@@ -1,0 +1,85 @@
+{
+    "tanaman": [
+      {
+        "id": 1,
+        "nama": "Jambu Biji",
+        "famili": "Myrtaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Daun jambu biji adalah daun dari tanaman jambu biji (Psidium guajava). Daunnya berbentuk oval dengan tepi rata dan memiliki warna hijau tua.",
+        "manfaat": "Manfaat daun jambu biji antara lain sebagai obat diare, mengurangi radikal bebas, dan menurunkan gula darah."
+      },
+      {
+        "id": 2,
+        "nama": "Kari",
+        "famili": "Rutaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Daun kari adalah daun dari pohon kari (Murraya koenigii). Daunnya berukuran kecil, berwarna hijau gelap, dan memiliki aroma khas.",
+        "manfaat": "Manfaat daun kari antara lain sebagai bumbu masakan, mengandung senyawa antioksidan, dan membantu mengurangi kadar gula darah."
+      },
+      {
+        "id": 3,
+        "nama": "Kemangi",
+        "famili": "Lamiaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Daun kemangi adalah daun dari tanaman kemangi (Ocimum basilicum). Daunnya berbentuk jantung dengan tepi rata dan memiliki aroma harum.",
+        "manfaat": "Manfaat daun kemangi antara lain sebagai bumbu masakan, mengandung vitamin dan mineral, dan membantu mengatasi masalah pencernaan."
+      },
+      {
+        "id": 4,
+        "nama": "Kunyit",
+        "famili": "Zingiberaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Daun kunyit adalah daun dari tanaman kunyit (Curcuma longa). Daunnya berukuran besar dengan warna hijau tua dan memiliki aroma khas kunyit.",
+        "manfaat": "Manfaat daun kunyit antara lain sebagai bumbu masakan, mengandung senyawa antiinflamasi, dan membantu meningkatkan sistem kekebalan tubuh."
+      },
+      {
+        "id": 5,
+        "nama": "Mint",
+        "famili": "Lamiaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Daun mint adalah daun dari tanaman mintus (Mentha spicata). Daunnya berukuran kecil dengan warna hijau cerah dan memiliki aroma segar.",
+        "manfaat": "Manfaat daun mintus antara lain sebagai bumbu masakan, mengandung senyawa mentol, dan membantu meredakan masalah perut."
+      },
+      {
+        "id": 6,
+        "nama": "Pepaya",
+        "famili": "Caricaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Daun pepaya adalah daun dari tanaman pepaya (Carica papaya). Daunnya berukuran besar dengan warna hijau dan bertekstur seperti kulit sawit.",
+        "manfaat": "Manfaat daun pepaya antara lain sebagai bumbu masakan, mengandung enzim papain, dan membantu meredakan peradangan."
+      },
+      {
+        "id": 7,
+        "nama": "Sirih",
+        "famili": "Piperaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Daun sirih adalah daun dari tanaman sirih (Piper betle). Daunnya berbentuk jantung dengan tepi rata dan memiliki aroma khas.",
+        "manfaat": "Manfaat daun sirih antara lain sebagai obat tradisional, mengandung senyawa antimikroba, dan membantu menyegarkan napas."
+      },
+      {
+        "id": 8,
+        "nama": "Sirsak",
+        "famili": "Annonaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Daun sirsak adalah daun dari tanaman sirsak (Annona muricata). Daunnya berukuran besar dengan warna hijau gelap dan bertekstur kasar.",
+        "manfaat": "Manfaat daun sirsak antara lain sebagai bumbu masakan, mengandung senyawa antioksidan, dan membantu mengatasi masalah tidur."
+      },
+      {
+        "id": 9,
+        "nama": "Lidah Buaya",
+        "famili": "Xanthorrhoeaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Lidah buaya adalah daun dari tanaman lidah buaya (Aloe vera). Daunnya berbentuk panjang dengan tepi bergerigi dan memiliki gel dalam.",
+        "manfaat": "Manfaat lidah buaya antara lain untuk perawatan kulit, mengandung vitamin dan mineral, dan membantu mengatasi luka bakar ringan."
+      },
+      {
+        "id": 10,
+        "nama": "Teh Hijau",
+        "famili": "Theaceae",
+        "gambar": "assets/images/detail_jambu_biji.png",
+        "deskripsi": "Teh hijau adalah minuman yang berasal dari daun teh (Camellia sinensis) yang belum difermentasi. Teh ini memiliki warna hijau muda dan rasa segar.",
+        "manfaat": "Manfaat teh hijau antara lain sebagai minuman penyegar, mengandung antioksidan, dan membantu meningkatkan konsentrasi."
+      }
+    ]
+  }
+  

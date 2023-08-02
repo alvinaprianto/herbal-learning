@@ -5,8 +5,8 @@ import 'package:hele/core/constants/image_constant.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:hele/features/article/screens/article_screen.dart';
 import 'package:hele/features/cultivation_menu/screens/cultivation_screen.dart';
-import 'package:hele/features/panduan/screens/panduan_screen.dart';
-import 'package:hele/features/pengolahan/screens/pengolahan_screen.dart';
+import 'package:hele/features/guide/screens/guide_screen.dart';
+import 'package:hele/features/plant_processing/screens/plant_processing_screen.dart';
 
 import '../../../features/article/models/article_model.dart';
 import '../../../features/article/widgets/article_widget.dart';

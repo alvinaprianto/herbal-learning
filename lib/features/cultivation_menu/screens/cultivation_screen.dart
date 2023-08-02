@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hele/utils/helper/read_json.dart';
 
+import '../../detection/models/plant_model.dart';
 import '../../detection/screens/detail_screen.dart';
 
 class CultivationScreen extends StatefulWidget {
@@ -76,6 +78,15 @@ Mendukung Kesehatan Jantung: Beberapa studi menunjukkan bahwa senyawa dalam sirs
 Potensi Anti Kanker: Sirsak telah menjadi subjek penelitian karena potensi anti kanker. Beberapa penelitian menunjukkan bahwa senyawa dalam sirsak dapat menghambat pertumbuhan sel kanker, menginduksi apoptosis (kematian sel kanker), dan menghambat perkembangan tumor.''',
   };
 
+  late Future<List<PlantModel>?> futurePlantModel;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    futurePlantModel = ReadJson.readJsonData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,63 +107,75 @@ Potensi Anti Kanker: Sirsak telah menjadi subjek penelitian karena potensi anti 
         ),
         backgroundColor: Colors.white,
       ),
-      body: ListView.builder(
-          itemCount: listTanaman.length,
-          padding: EdgeInsets.symmetric(
-            vertical: 16.0,
-            horizontal: 16.0,
-          ),
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => DetailScreen(mapDetail: () {
-                          if (listTanaman.elementAt(index) == "Jambu Biji") {
-                            return mapJambuBiji;
-                          } else if (listTanaman.elementAt(index) == "Kari") {
-                            return mapKari;
-                          } else if (listTanaman.elementAt(index) == "Kunyit") {
-                            return mapKunyit;
-                          } else if (listTanaman.elementAt(index) == "Sirih") {
-                            return mapSirih;
-                          } else {
-                            return mapSirsak;
-                          }
-                        }())));
-              },
-              child: Container(
-                margin: EdgeInsets.symmetric(
-                  vertical: 8.0,
-                  horizontal: 8.0,
-                ),
-                padding: EdgeInsets.symmetric(
-                  vertical: 8.0,
-                  horizontal: 8.0,
-                ),
-                height: 40,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        blurRadius: 10,
-                        offset: Offset(0, 3),
+      body: FutureBuilder(
+          future: futurePlantModel,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                  itemCount: listTanaman.length,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 16.0,
+                    horizontal: 16.0,
+                  ),
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => DetailScreen(mapDetail: () {
+                                  if (listTanaman.elementAt(index) ==
+                                      "Jambu Biji") {
+                                    return snapshot.data!.elementAt(0);
+                                  } else if (listTanaman.elementAt(index) ==
+                                      "Kari") {
+                                    return snapshot.data!.elementAt(1);
+                                  } else if (listTanaman.elementAt(index) ==
+                                      "Kunyit") {
+                                    return snapshot.data!.elementAt(2);
+                                  } else if (listTanaman.elementAt(index) ==
+                                      "Sirih") {
+                                    return snapshot.data!.elementAt(3);
+                                  } else {
+                                    return snapshot.data!.elementAt(4);
+                                  }
+                                }())));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(
+                          vertical: 8.0,
+                          horizontal: 8.0,
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          vertical: 8.0,
+                          horizontal: 8.0,
+                        ),
+                        height: 40,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.2),
+                                blurRadius: 10,
+                                offset: Offset(0, 3),
+                              ),
+                            ]),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(listTanaman.elementAt(index)),
+                            Icon(
+                              Icons.navigate_next,
+                              size: 24,
+                            )
+                          ],
+                        ),
                       ),
-                    ]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(listTanaman.elementAt(index)),
-                    Icon(
-                      Icons.navigate_next,
-                      size: 24,
-                    )
-                  ],
-                ),
-              ),
-            );
+                    );
+                  });
+            } else {
+              return CircularProgressIndicator();
+            }
           }),
     );
   }

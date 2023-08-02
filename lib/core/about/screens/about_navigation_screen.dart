@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hele/core/constants/color_constant.dart';
-import 'package:hele/core/constants/icon_constant.dart';
 import 'package:hele/core/constants/image_constant.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
-import '../../../features/article/models/article_model.dart';
-import '../../../features/article/widgets/article_widget.dart';
 
 class AboutNavigationScreen extends StatefulWidget {
   const AboutNavigationScreen({super.key});

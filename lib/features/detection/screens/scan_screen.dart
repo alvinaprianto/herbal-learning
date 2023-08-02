@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'package:hele/core/constants/color_constant.dart';
-import 'package:hele/core/constants/image_constant.dart';
+import 'package:hele/features/detection/models/plant_model.dart';
 import 'package:hele/features/detection/screens/detail_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
 
 class ScanScreen extends StatefulWidget {
   const ScanScreen({super.key, required this.title});
@@ -85,9 +87,31 @@ Mendukung Kesehatan Jantung: Beberapa studi menunjukkan bahwa senyawa dalam sirs
 Potensi Anti Kanker: Sirsak telah menjadi subjek penelitian karena potensi anti kanker. Beberapa penelitian menunjukkan bahwa senyawa dalam sirsak dapat menghambat pertumbuhan sel kanker, menginduksi apoptosis (kematian sel kanker), dan menghambat perkembangan tumor.''',
   };
 
+  Future<List<PlantModel>?> readJsonData() async {
+    try {
+      String jsonString =
+          await rootBundle.loadString('assets/json/model/model_tanaman.json');
+      final jsonData = json.decode(jsonString);
+
+      List<dynamic> tanamanData = jsonData['tanaman'];
+      List<PlantModel> tempList = [];
+      for (var item in tanamanData) {
+        tempList.add(PlantModel.fromJson(item));
+      }
+      print(tempList);
+      return tempList;
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
+
+  late Future<List<PlantModel>?> futurePlantModel;
+
   @override
   void initState() {
     super.initState();
+    futurePlantModel = readJsonData();
     setState(() {
       _loading = true;
     });
@@ -100,7 +124,7 @@ Potensi Anti Kanker: Sirsak telah menjadi subjek penelitian karena potensi anti 
     var output = await Tflite.runModelOnImage(
         path: image.path,
         numResults: 5,
-        threshold: 0.5,
+        threshold: 0.8,
         imageMean: 127.5,
         imageStd: 127.5);
     setState(() {
@@ -111,8 +135,7 @@ Potensi Anti Kanker: Sirsak telah menjadi subjek penelitian karena potensi anti 
 
   loadModel() async {
     await Tflite.loadModel(
-        model: 'assets/tf/model_unquant.tflite',
-        labels: 'assets/tf/labels2.txt');
+        model: 'assets/tf/model_3.tflite', labels: 'assets/tf/labels3.txt');
   }
 
   @override
@@ -169,153 +192,171 @@ Potensi Anti Kanker: Sirsak telah menjadi subjek penelitian karena potensi anti 
           backgroundColor: Colors.white,
         ),
         backgroundColor: Colors.white,
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: _loading
-                    ? Container(
-                        width: 350,
-                        height: 300,
+        body: FutureBuilder(
+            future: futurePlantModel,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Container(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: _loading
+                            ? Container(
+                                width: 350,
+                                height: 300,
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/holder_image.png',
+                                      fit: BoxFit.cover,
+                                    ),
+                                    SizedBox(
+                                      height: 50,
+                                    )
+                                  ],
+                                ),
+                              )
+                            : Container(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: 350,
+                                      height: 300,
+                                      padding: EdgeInsets.all(12),
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: ColorConstant.primaryColor
+                                                  .withOpacity(0.2),
+                                              blurRadius: 10,
+                                              offset: Offset(0, 3),
+                                            ),
+                                          ]),
+                                      child: Image.file(
+                                        _image,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      _output.length == 0
+                                          ? "Unclassified image. Please try again"
+                                          : '${_output[0]['label']}',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    )
+                                  ],
+                                ),
+                              ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 40),
+                        width: MediaQuery.of(context).size.width,
                         child: Column(
                           children: [
-                            Image.asset(
-                              'assets/images/holder_image.png',
-                              fit: BoxFit.cover,
+                            GestureDetector(
+                              onTap: () {
+                                _loading
+                                    ? pickImage()
+                                    : Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                DetailScreen(mapDetail: () {
+                                                  if (_output[0]['label'] ==
+                                                      "Daun Jambu Biji") {
+                                                    return snapshot.data!
+                                                        .elementAt(0);
+                                                  } else if (_output[0]
+                                                          ['label'] ==
+                                                      "Daun Kari") {
+                                                    return snapshot.data!
+                                                        .elementAt(1);
+                                                  } else if (_output[0]
+                                                          ['label'] ==
+                                                      "Daun Kunyit") {
+                                                    return snapshot.data!
+                                                        .elementAt(2);
+                                                  } else if (_output[0]
+                                                          ['label'] ==
+                                                      "Daun Sirih") {
+                                                    return snapshot.data!
+                                                        .elementAt(3);
+                                                  } else {
+                                                    return snapshot.data!
+                                                        .elementAt(4);
+                                                  }
+                                                }())));
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.7,
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 14),
+                                decoration: BoxDecoration(
+                                  color: ColorConstant.primaryColor,
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                child: Text(
+                                  _loading ? 'Capture a Photo' : 'See Detail',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
                             ),
                             SizedBox(
-                              height: 50,
-                            )
+                              height: 12,
+                            ),
+                            Text("Or"),
+                            SizedBox(
+                              height: 12,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                pickGalleryImage();
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.7,
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 14),
+                                decoration: BoxDecoration(
+                                  color: ColorConstant.primaryColor,
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                child: Text(
+                                  'Select a Photo',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       )
-                    : Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              width: 350,
-                              height: 300,
-                              padding: EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(8),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: ColorConstant.primaryColor
-                                          .withOpacity(0.2),
-                                      blurRadius: 10,
-                                      offset: Offset(0, 3),
-                                    ),
-                                  ]),
-                              child: Image.file(
-                                _image,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              _output.length == 0
-                                  ? "Unclassified image. Please try again"
-                                  : '${_output[0]['label']}',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            )
-                          ],
-                        ),
-                      ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 40),
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        _loading
-                            ? pickImage()
-                            : Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    DetailScreen(mapDetail: () {
-                                      if (_output[0]['label'] ==
-                                          "Daun Jambu Biji") {
-                                        return mapJambuBiji;
-                                      } else if (_output[0]['label'] ==
-                                          "Daun Kari") {
-                                        return mapKari;
-                                      } else if (_output[0]['label'] ==
-                                          "Daun Kunyit") {
-                                        return mapKunyit;
-                                      } else if (_output[0]['label'] ==
-                                          "Daun Sirih") {
-                                        return mapSirih;
-                                      } else {
-                                        return mapSirsak;
-                                      }
-                                    }())));
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.7,
-                        alignment: Alignment.center,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 14),
-                        decoration: BoxDecoration(
-                          color: ColorConstant.primaryColor,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Text(
-                          _loading ? 'Capture a Photo' : 'See Detail',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Text("Or"),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        pickGalleryImage();
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.7,
-                        alignment: Alignment.center,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 14),
-                        decoration: BoxDecoration(
-                          color: ColorConstant.primaryColor,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Text(
-                          'Select a Photo',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
+                    ],
+                  ),
+                );
+              } else {
+                return CircularProgressIndicator();
+              }
+            }),
       ),
     );
   }

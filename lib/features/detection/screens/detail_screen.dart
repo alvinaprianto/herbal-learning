@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/constants/color_constant.dart';
 import '../../../core/constants/image_constant.dart';
+import '../models/plant_model.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key, required this.mapDetail});
 
-  final Map<String, dynamic> mapDetail;
+  final PlantModel mapDetail;
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
@@ -15,7 +15,6 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -26,8 +25,8 @@ class _DetailScreenState extends State<DetailScreen> {
         fit: StackFit.expand,
         children: [
           Align(
-            child: Image.asset(ImageConstant.topDetailDecoration),
             alignment: Alignment.topCenter,
+            child: Image.asset(ImageConstant.topDetailDecoration),
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -75,7 +74,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                       child: Column(children: [
                         Text(
-                          "Jambu Biji",
+                          widget.mapDetail.nama!,
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.w600),
                         ),
@@ -96,58 +95,71 @@ class _DetailScreenState extends State<DetailScreen> {
                             // ]
                           ),
                           child: Image.asset(
-                            ImageConstant.detailJambuBiji,
+                            widget.mapDetail.gambar!,
                             fit: BoxFit.cover,
                           ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Column(
-                          children: List.generate(
-                            widget.mapDetail.length,
-                            (index) => Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 24),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    widget.mapDetail.keys.elementAt(index),
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    widget.mapDetail.values.elementAt(index),
-                                    style: TextStyle(
-                                        letterSpacing: 0.6,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
-                                        color: index == 0
-                                            ? ColorConstant.primaryColor
-                                            : Colors.black),
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Divider(
-                                    thickness: 2,
-                                    color: Colors.grey.withOpacity(0.1),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
+                        DetailSectionWidget(
+                          titleSection: "Famili",
+                          valueSection: widget.mapDetail.famili!,
+                        ),
+                        DetailSectionWidget(
+                          titleSection: "Deskripsi",
+                          valueSection: widget.mapDetail.deskripsi!,
+                        ),
+                        DetailSectionWidget(
+                          titleSection: "Manfaat",
+                          valueSection: widget.mapDetail.manfaat!,
+                        ),
                       ]),
                     ),
                   );
                 })),
           )
+        ],
+      ),
+    );
+  }
+}
+
+class DetailSectionWidget extends StatelessWidget {
+  const DetailSectionWidget(
+      {super.key, required this.titleSection, required this.valueSection});
+  final String titleSection;
+  final String valueSection;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            titleSection,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          Text(
+            valueSection,
+            style: TextStyle(
+                letterSpacing: 0.6,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                color: Colors.black),
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          Divider(
+            thickness: 2,
+            color: Colors.grey.withOpacity(0.1),
+          ),
         ],
       ),
     );

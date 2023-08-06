@@ -66,6 +66,8 @@ flutter:
     - assets/tf/
     - assets/tf/modeltanamanherbal.tflite
     - assets/tf/labels.txt
+    - assets/tf/model_last.tflite
+    - assets/tf/labels_last.txt
     - assets/images/
     - assets/icons/
     - assets/json/model/model_tanaman.json

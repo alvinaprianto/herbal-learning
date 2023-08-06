@@ -154,16 +154,8 @@ class _DetailOlahTanamanState extends State<DetailOlahTanaman> {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: CustomButton(
-                onPressed: () => {
-                  // if (_isLoggedIn())
-                  //   {}
-                  // else
-                  //   Navigator.pushNamed(
-                  //     context,
-                  //     RoutePaths.navigationScreen,
-                  //   )
-                },
-                child: const Text("Kembali ke Home"),
+                onPressed: () => {Navigator.pop(context)},
+                child: const Text("Mengerti"),
               ),
             ),
           ),

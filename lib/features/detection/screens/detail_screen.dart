@@ -94,7 +94,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             //   ),
                             // ]
                           ),
-                          child: Image.asset(
+                          child: Image.network(
                             widget.mapDetail.gambar!,
                             fit: BoxFit.cover,
                           ),

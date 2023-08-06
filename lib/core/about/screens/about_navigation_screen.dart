@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hele/core/constants/color_constant.dart';
 import 'package:hele/core/constants/image_constant.dart';
 
-
 class AboutNavigationScreen extends StatefulWidget {
   const AboutNavigationScreen({super.key});
 
@@ -14,7 +13,7 @@ class _AboutNavigationScreenState extends State<AboutNavigationScreen> {
   final mapAbout = {
     "Version": "1.0.0",
     "Description":
-        """Hele App is a comprehensive herbal learning application designed to assist you in classifying and identifying various herbs and plants. Whether you are a passionate gardener, a herbal enthusiast, or simply curious about the world of plants, Hele App is here to provide you with a wealth of knowledge and guidance. Hele App is the ultimate companion for anyone seeking to deepen their understanding of herbs, plants, and gardening. Whether you're a beginner or an experienced herbalist, this app will inspire, educate, and empower you to create a greener, healthier, and more fulfilling connection with nature. Embark on a journey of herbal discovery with Hele App today!""",
+        """Hele adalah aplikasi yang dirancang untuk membantu pengguna mengenal berbagai macam tanaman herbal berdasarkan bentuk dan ciri-ciri daunnya. Aplikasi ini menggunakan teknologi pengenalan citra dan pembelajaran mesin untuk melakukan klasifikasi tanaman herbal secara akurat. Pengguna dapat dengan mudah mengidentifikasi tanaman-tanaman herbal yang mungkin tidak dikenal sebelumnya hanya dengan mengambil gambar daunnya.""",
     "Developers": '1. Alvin Aprianto 2. Bagas Miftahun Naim',
   };
 

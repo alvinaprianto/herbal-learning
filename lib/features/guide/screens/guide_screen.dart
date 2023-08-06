@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hele/core/constants/color_constant.dart';
+import 'package:hele/core/navigation_screen.dart';
 
 import '../../../core/constants/image_constant.dart';
 import '../widgets/custom_button.dart';
@@ -134,13 +135,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: CustomButton(
                   onPressed: () => {
-                    // if (_isLoggedIn())
-                    //   {}
-                    // else
-                    //   Navigator.pushNamed(
-                    //     context,
-                    //     RoutePaths.navigationScreen,
-                    //   )
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => NavigationScreen()))
                   },
                   child: const Text("Kembali ke Home"),
                 ),

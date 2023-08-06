@@ -1,10 +1,2 @@
-Daun Jambu Biji
-Daun Kari
-Daun Kemangi
-Daun Kunyit
-Daun Mintus
-Daun Pepaya
-Daun Sirih
-Daun Sirsak
-Lidah Buaya
-Teh Hijau
+0 Class 1
+1 Class 2

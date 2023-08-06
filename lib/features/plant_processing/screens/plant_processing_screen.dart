@@ -11,8 +11,6 @@ class PengolahanScreen extends StatefulWidget {
 class _PengolahanScreenState extends State<PengolahanScreen> {
   List listTanaman = [
     "Daun Jambu Biji Obat Sakit Perut",
-    "Daun Sirsak Obat Darah Tinggi",
-    "Daun Sirih Penghilang Bau Badan",
   ];
 
   final mapJambuBiji = {

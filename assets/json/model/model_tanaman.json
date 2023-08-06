@@ -1,85 +1,194 @@
-{
-    "tanaman": [
-      {
-        "id": 1,
-        "nama": "Jambu Biji",
-        "famili": "Myrtaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Daun jambu biji adalah daun dari tanaman jambu biji (Psidium guajava). Daunnya berbentuk oval dengan tepi rata dan memiliki warna hijau tua.",
-        "manfaat": "Manfaat daun jambu biji antara lain sebagai obat diare, mengurangi radikal bebas, dan menurunkan gula darah."
-      },
-      {
-        "id": 2,
-        "nama": "Kari",
-        "famili": "Rutaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Daun kari adalah daun dari pohon kari (Murraya koenigii). Daunnya berukuran kecil, berwarna hijau gelap, dan memiliki aroma khas.",
-        "manfaat": "Manfaat daun kari antara lain sebagai bumbu masakan, mengandung senyawa antioksidan, dan membantu mengurangi kadar gula darah."
-      },
-      {
-        "id": 3,
-        "nama": "Kemangi",
-        "famili": "Lamiaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Daun kemangi adalah daun dari tanaman kemangi (Ocimum basilicum). Daunnya berbentuk jantung dengan tepi rata dan memiliki aroma harum.",
-        "manfaat": "Manfaat daun kemangi antara lain sebagai bumbu masakan, mengandung vitamin dan mineral, dan membantu mengatasi masalah pencernaan."
-      },
-      {
-        "id": 4,
-        "nama": "Kunyit",
-        "famili": "Zingiberaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Daun kunyit adalah daun dari tanaman kunyit (Curcuma longa). Daunnya berukuran besar dengan warna hijau tua dan memiliki aroma khas kunyit.",
-        "manfaat": "Manfaat daun kunyit antara lain sebagai bumbu masakan, mengandung senyawa antiinflamasi, dan membantu meningkatkan sistem kekebalan tubuh."
-      },
-      {
-        "id": 5,
-        "nama": "Mint",
-        "famili": "Lamiaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Daun mint adalah daun dari tanaman mintus (Mentha spicata). Daunnya berukuran kecil dengan warna hijau cerah dan memiliki aroma segar.",
-        "manfaat": "Manfaat daun mintus antara lain sebagai bumbu masakan, mengandung senyawa mentol, dan membantu meredakan masalah perut."
-      },
-      {
-        "id": 6,
-        "nama": "Pepaya",
-        "famili": "Caricaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Daun pepaya adalah daun dari tanaman pepaya (Carica papaya). Daunnya berukuran besar dengan warna hijau dan bertekstur seperti kulit sawit.",
-        "manfaat": "Manfaat daun pepaya antara lain sebagai bumbu masakan, mengandung enzim papain, dan membantu meredakan peradangan."
-      },
-      {
-        "id": 7,
-        "nama": "Sirih",
-        "famili": "Piperaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Daun sirih adalah daun dari tanaman sirih (Piper betle). Daunnya berbentuk jantung dengan tepi rata dan memiliki aroma khas.",
-        "manfaat": "Manfaat daun sirih antara lain sebagai obat tradisional, mengandung senyawa antimikroba, dan membantu menyegarkan napas."
-      },
-      {
-        "id": 8,
-        "nama": "Sirsak",
-        "famili": "Annonaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Daun sirsak adalah daun dari tanaman sirsak (Annona muricata). Daunnya berukuran besar dengan warna hijau gelap dan bertekstur kasar.",
-        "manfaat": "Manfaat daun sirsak antara lain sebagai bumbu masakan, mengandung senyawa antioksidan, dan membantu mengatasi masalah tidur."
-      },
-      {
-        "id": 9,
-        "nama": "Lidah Buaya",
-        "famili": "Xanthorrhoeaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Lidah buaya adalah daun dari tanaman lidah buaya (Aloe vera). Daunnya berbentuk panjang dengan tepi bergerigi dan memiliki gel dalam.",
-        "manfaat": "Manfaat lidah buaya antara lain untuk perawatan kulit, mengandung vitamin dan mineral, dan membantu mengatasi luka bakar ringan."
-      },
-      {
-        "id": 10,
-        "nama": "Teh Hijau",
-        "famili": "Theaceae",
-        "gambar": "assets/images/detail_jambu_biji.png",
-        "deskripsi": "Teh hijau adalah minuman yang berasal dari daun teh (Camellia sinensis) yang belum difermentasi. Teh ini memiliki warna hijau muda dan rasa segar.",
-        "manfaat": "Manfaat teh hijau antara lain sebagai minuman penyegar, mengandung antioksidan, dan membantu meningkatkan konsentrasi."
-      }
-    ]
+[
+  {
+    "id": 1,
+    "nama": "Daun Sirsak",
+    "famili": "Annonaceae",
+    "gambar": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/10/18025028/kenali-manfaat-daun-sirsak-untuk-kesehatan-wanita-halodoc.jpg",
+    "deskripsi": "Daun dari tanaman sirsak (Annona muricata), biasanya digunakan dalam berbagai ramuan tradisional. Memiliki aroma khas dan rasa yang agak pahit.",
+    "manfaat": "Diklaim memiliki potensi antioksidan dan kemampuan untuk meningkatkan sistem kekebalan tubuh."
+  },
+  {
+    "id": 2,
+    "nama": "Daun Sirih",
+    "famili": "Piperaceae",
+    "gambar": "https://yankes.kemkes.go.id/img/bg-img/gambarartikel_1659509626_965186.jpg",
+    "deskripsi": "Daun dari tanaman sirih (Piper betle), sering digunakan dalam tradisi pengobatan dan kecantikan di berbagai budaya.",
+    "manfaat": "Dikenal memiliki sifat antiseptik dan antiinflamasi. Dipercaya dapat membantu dalam masalah pernapasan dan merawat kesehatan gigi-gusi."
+  },
+  {
+    "id": 3,
+    "nama": "Daun Kunyit",
+    "famili": "Zingiberaceae",
+    "gambar": "https://mediatani.co/wp-content/uploads/2022/04/bagian-tanaman-kunyit.png",
+    "deskripsi": "Daun dari tanaman kunyit (Curcuma longa), memiliki aroma harum dan rasa sedikit pahit. Biasanya digunakan sebagai bumbu masakan dan ramuan obat tradisional.",
+    "manfaat": "Mengandung senyawa curcumin yang memiliki sifat antiinflamasi dan antioksidan. Dapat membantu meredakan peradangan dan mendukung kesehatan pencernaan."
+  },
+  {
+    "id": 4,
+    "nama": "Daun Kari",
+    "famili": "Rutaceae",
+    "gambar": "https://www.satuharapan.com/uploads/cache/news_77109_1515150480.jpg",
+    "deskripsi": "Daun dari tanaman kari (Murraya koenigii), memiliki aroma harum dan rasa yang khas. Digunakan dalam masakan kari dan sebagai ramuan pengobatan tradisional.",
+    "manfaat": "Kaya akan senyawa fitokimia dan antioksidan. Diklaim memiliki potensi untuk mengatur gula darah dan mendukung kesehatan mata."
+  },
+  {
+    "id": 5,
+    "nama": "Daun Jambu Biji",
+    "famili": "Myrtaceae",
+    "gambar": "https://imgx.parapuan.co/crop/0x0:0x0/x/photo/2022/01/12/daun-jambujpg-20220112093050.jpg",
+    "deskripsi": "Daun dari tanaman jambu biji (Psidium guajava), memiliki aroma segar dan rasa yang khas. Dikenal dalam pengobatan tradisional dan memiliki sifat antimikroba.",
+    "manfaat": "Diklaim dapat membantu mengatasi diare dan masalah pencernaan lainnya. Juga memiliki potensi sebagai antidiabetes dan penurun tekanan darah."
+  },
+  {
+    "id": 6,
+    "nama": "Daun Teh Hijau",
+    "famili": "Theaceae",
+    "gambar": "https://ds393qgzrxwzn.cloudfront.net/resize/m500x500/cat1/img/images/0/NvVpKnDRvc.jpg",
+    "deskripsi": "Daun dari tanaman teh hijau (Camellia sinensis), dikenal karena kandungan katekin dan kafeinnya. Biasanya digunakan untuk membuat minuman teh.",
+    "manfaat": "Kaya akan antioksidan, terutama katekin. Diklaim memiliki berbagai manfaat kesehatan, termasuk meningkatkan metabolisme dan mendukung kesehatan jantung."
+  },
+  {
+    "id": 7,
+    "nama": "Lidah Buaya",
+    "famili": "Asphodelaceae",
+    "gambar": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1607054257/attached_image/berbagai-manfaat-lidah-buaya-untuk-wajah.jpg",
+    "deskripsi": "Tanaman lidah buaya (Aloe vera) memiliki daun tebal berduri yang mengandung gel dalam dagingnya. Digunakan dalam produk perawatan kulit dan minuman.",
+    "manfaat": "Gel lidah buaya sering digunakan untuk meredakan kulit terbakar dan luka ringan. Dikonsumsi dalam bentuk minuman, diklaim dapat mendukung pencernaan dan sistem kekebalan tubuh."
+  },
+  {
+    "id": 8,
+    "nama": "Daun Pepaya",
+    "famili": "Caricaceae",
+    "gambar": "https://asset-a.grid.id/crop/0x0:0x0/x/photo/2018/05/18/1528467099.jpg",
+    "deskripsi": "Daun dari tanaman pepaya (Carica papaya), memiliki bentuk unik dan sering digunakan dalam masakan tradisional.",
+    "manfaat": "Mengandung enzim papain yang dapat membantu mencerna protein. Diklaim memiliki potensi antiinflamasi dan antioksidan."
+  },
+  {
+    "id": 9,
+    "nama": "Daun Kemangi",
+    "famili": "Lamiaceae",
+    "gambar": "https://cdn0-production-images-kly.akamaized.net/TrXk2ajiNE_wPpysewPTvJyEevo=/800x450/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3488453/original/046029300_1624255366-sweet-basil-leaves-white_51524-3447.jpg",
+    "deskripsi": "Daun dari tanaman kemangi (Ocimum basilicum), memiliki aroma harum dan rasa segar. Sering digunakan dalam masakan dan minuman.",
+    "manfaat": "Mengandung senyawa esensial seperti eugenol. Dipercaya memiliki efek antimikroba dan antioksidan, serta dapat membantu mengurangi stres."
+  },
+  {
+    "id": 10,
+    "nama": "Daun Mint",
+    "famili": "Lamiaceae",
+    "gambar": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1603113339/attached_image/manfaat-daun-mint-untuk-kesehatan-yang-ayang-dilewatkan.jpg",
+    "deskripsi": "Daun dari tanaman mint (Mentha), memiliki aroma dan rasa yang menyegarkan. Sering digunakan dalam minuman dan masakan.",
+    "manfaat": "Dikenal memiliki efek menyegarkan napas dan meredakan masalah perut seperti gas. Juga memiliki potensi dalam meredakan sakit kepala."
+  },
+  {
+    "id": 11,
+    "nama": "Daun Gingseng",
+    "famili": "Araliaceae",
+    "gambar": "https://www.jalaksuren.net/wp-content/uploads/2019/01/Manfaaat-Daun-Gingseng-Untuk-Burung-Kicauan-dan-Cara-Pemberiannya.jpg",
+    "deskripsi": "Daun dari tanaman ginseng (Panax), dikenal sebagai herbal yang dihargai dalam pengobatan tradisional.",
+    "manfaat": "Diklaim memiliki efek adaptogen, membantu tubuh beradaptasi dengan stres. Dapat mendukung energi dan kesehatan umum."
+  },
+  {
+    "id": 12,
+    "nama": "Daun Mangkokan",
+    "famili": "Lamiaceae",
+    "gambar": "https://santuynesia.com/santuyuploads/2021/12/manfaat-daun-mangkokan.jpg",
+    "deskripsi": "Daun dari tanaman mangkokan (Nothopanax scutellarium), dikenal karena bentuknya yang seperti mangkuk kecil.",
+    "manfaat": "Diklaim memiliki potensi dalam membantu meredakan peradangan dan menunjang kesehatan pencernaan."
+  },
+  {
+    "id": 13,
+    "nama": "Daun Sambung Nyawa",
+    "famili": "Amaranthaceae",
+    "gambar": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2022/08/11050100/X-Manfaat-Daun-Sambung-Nyawa-untuk-Kesehatan-Tubuh.jpg",
+    "deskripsi": "Daun dari tanaman sambung nyawa (Gynura procumbens), memiliki warna yang menarik dan bentuk yang unik.",
+    "manfaat": "Diklaim memiliki potensi dalam menurunkan tekanan darah, mengatur gula darah, dan memiliki sifat antioksidan."
+  },
+  {
+    "id": 14,
+    "nama": "Daun Pucuk Merah",
+    "famili": "Amaranthaceae",
+    "gambar": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1605523207/attached_image/memetik-manfaat-pucuk-merah-untuk-kesehatan.jpg",
+    "deskripsi": "Daun dari tanaman pucuk merah (Alternanthera sessilis), memiliki warna merah cerah yang menarik.",
+    "manfaat": "Sering digunakan dalam masakan Asia Tenggara. Diklaim memiliki kandungan gizi yang baik, termasuk vitamin A, C, dan zat besi."
+  },
+  {
+    "id": 15,
+    "nama": "Daun Saga",
+    "famili": "Malvaceae",
+    "gambar": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2022/10/17030740/ini-manfaat-daun-saga-yang-jarang-diketahui-halodoc.jpg",
+    "deskripsi": "Daun dari tanaman saga (Hibiscus sabdariffa), dikenal dengan bunga merahnya yang digunakan dalam minuman seperti teh hibiscus.",
+    "manfaat": "Kaya akan vitamin C dan antioksidan. Diklaim dapat membantu menurunkan tekanan darah dan meningkatkan kesehatan jantung."
+  },
+  {
+    "id": 16,
+    "nama": "Daun Kelor",
+    "famili": "Moringaceae",
+    "gambar": "https://diskes.badungkab.go.id/storage/diskes/image/WhatsApp%20Image%202023-01-30%20at%2013.55.59.jpeg",
+    "deskripsi": "Daun dari tanaman kelor (Moringa oleifera), memiliki bentuk majemuk dengan banyak daun kecil.",
+    "manfaat": "Kaya akan nutrisi, termasuk vitamin dan mineral. Diklaim memiliki potensi dalam mendukung kesehatan tulang dan sistem kekebalan tubuh."
+  },
+  {
+    "id": 17,
+    "nama": "Daun Pandan",
+    "famili": "Pandanaceae",
+    "gambar": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/10/06080936/Cara-Mengolah-Daun-Pandan-dan-Manfaatnya-untuk-Kesehatan-01-1.jpg",
+    "deskripsi": "Daun dari tanaman pandan (Pandanus amaryllifolius), memiliki aroma yang khas dan sering digunakan dalam masakan Asia.",
+    "manfaat": "Dikenal untuk aroma yang menyegarkan dan digunakan dalam makanan tradisional. Tidak banyak bukti ilmiah tentang manfaat kesehatan."
+  },
+  {
+    "id": 18,
+    "nama": "Daun Jeruk",
+    "famili": "Rutaceae",
+    "gambar": "https://asset.kompas.com/crops/1G1EMGSmTou_yaGYFfMRPKmIxmg=/0x0:1000x667/750x500/data/photo/2021/08/28/6129bd3937b04.jpg",
+    "deskripsi": "Daun dari tanaman jeruk (Citrus), memiliki aroma harum dan sering digunakan dalam masakan tradisional.",
+    "manfaat": "Diklaim memiliki kandungan fitokimia dan antioksidan. Dapat digunakan sebagai bumbu masakan atau dalam minuman."
+  },
+  {
+    "id": 19,
+    "nama": "Daun Belimbing Wuluh",
+    "famili": "Oxalidaceae",
+    "gambar": "https://asset.kompas.com/crops/FR6AhHM4MQl-MxwJHneqK4E1Miw=/0x0:1000x667/750x500/data/photo/2021/10/21/6170d20121921.jpeg",
+    "deskripsi": "Daun dari tanaman belimbing wuluh (Averrhoa bilimbi), memiliki bentuk unik dan sering digunakan dalam masakan asam.",
+    "manfaat": "Diklaim memiliki kandungan antioksidan. Sering digunakan dalam masakan untuk memberikan rasa asam segar."
+  },
+  {
+    "id": 20,
+    "nama": "Daun Nangka",
+    "famili": "Moraceae",
+    "gambar": "https://images.genpi.co/uploads/data/images/daun%20nangka%20pix.jpg",
+    "deskripsi": "Daun dari tanaman nangka (Artocarpus heterophyllus), memiliki daun besar dan tahan lama.",
+    "manfaat": "Diklaim memiliki potensi dalam mengatasi masalah diabetes dan kolesterol tinggi. Juga memiliki kandungan serat yang baik."
+  },
+  {
+    "id": 21,
+    "nama": "Daun Katuk",
+    "famili": "Fabaceae",
+    "gambar": "https://cdn0-production-images-kly.akamaized.net/QEHEAZZWQGXsntYDKJ2-lVMMfj0=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/1691260/original/022948300_1503652496-Konsumsi-Daun-Katuk-dapat-Memperlancar-Produksi-ASI.jpg",
+    "deskripsi": "Daun dari tanaman katuk (Sauropus androgynus), sering digunakan dalam masakan Asia Tenggara.",
+    "manfaat": "Kaya akan nutrisi seperti protein, vitamin, dan mineral. Diklaim memiliki potensi untuk meningkatkan produksi ASI pada ibu menyusui."
+  },
+  {
+    "id": 22,
+    "nama": "Daun Tempuyung",
+    "famili": "Asteraceae",
+    "gambar": "https://assets.ayobandung.com/crop/0x0:0x0/750x500/webp/photo/2022/01/27/1561232548.jpeg",
+    "deskripsi": "Daun dari tanaman tempuyung (Sonchus arvensis), dikenal karena memiliki sifat diuretik.",
+    "manfaat": "Diklaim memiliki potensi untuk membantu mengatasi masalah saluran kemih dan edema. Dapat digunakan sebagai ramuan tradisional."
+  },
+  {
+    "id": 23,
+    "nama": "Daun Seledri",
+    "famili": "Apiaceae",
+    "gambar": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2022/06/30075319/Inilah-X-Manfaat-Daun-Seledri-untuk-Kesehatan.jpg",
+    "deskripsi": "Daun dari tanaman seledri (Apium graveolens), memiliki aroma dan rasa yang khas.",
+    "manfaat": "Kaya akan vitamin K dan berbagai nutrisi. Diklaim memiliki sifat antiinflamasi dan dapat mendukung kesehatan jantung."
+  },
+  {
+    "id": 24,
+    "nama": "Daun Dewa",
+    "famili": "Amaranthaceae",
+    "gambar": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2022/10/05085328/X-Manfaat-Daun-Dewa-untuk-Kesehatan.jpg",
+    "deskripsi": "Daun dari tanaman dewa (Gynura divaricata), memiliki warna ungu yang menarik.",
+    "manfaat": "Diklaim memiliki potensi dalam mengatur gula darah dan mendukung kesehatan jantung. Juga memiliki kandungan antioksidan."
   }
-  
+]

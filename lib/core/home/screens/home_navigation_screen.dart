@@ -9,6 +9,7 @@ import 'package:hele/features/guide/screens/guide_screen.dart';
 import 'package:hele/features/plant_processing/screens/plant_processing_screen.dart';
 
 import '../../../features/article/models/article_model.dart';
+import '../../../features/article/screens/article_detail_screen.dart';
 import '../../../features/article/widgets/article_widget.dart';
 
 class HomeNavigationScreen extends StatefulWidget {
@@ -195,8 +196,15 @@ class _HomeNavigationScreenState extends State<HomeNavigationScreen> {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 5,
             itemBuilder: ((context, index) {
-              return CardArtikel(
-                data: _information[index],
+              return GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => ArticleDetailScreen(
+                          source: _information[index].sumber)));
+                },
+                child: CardArtikel(
+                  data: _information[index],
+                ),
               );
             }),
           ),

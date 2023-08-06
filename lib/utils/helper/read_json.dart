@@ -11,7 +11,7 @@ class ReadJson {
           await rootBundle.loadString('assets/json/model/model_tanaman.json');
       final jsonData = json.decode(jsonString);
 
-      List<dynamic> tanamanData = jsonData['tanaman'];
+      List<dynamic> tanamanData = jsonData;
       List<PlantModel> tempList = [];
       for (var item in tanamanData) {
         tempList.add(PlantModel.fromJson(item));

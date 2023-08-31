@@ -135,8 +135,8 @@ class _ScanScreenState extends State<ScanScreen> {
 
   loadModel() async {
     await Tflite.loadModel(
-        model: 'assets/tf/model_last.tflite',
-        labels: 'assets/tf/labels_last.txt');
+        model: 'assets/tf/model_terakhir.tflite',
+        labels: 'assets/tf/labels_terakhir.txt');
   }
 
   @override

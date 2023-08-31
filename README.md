@@ -6,7 +6,7 @@ Detection and Classification Herbal Plants
 
          Home Screen       |        Scan Screen        |          Result            
 :-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/alvinaprianto/herbal-learning/blob/master/screenshots/Home.png?raw=true)|![](https://github.com/alvinaprianto/herbal-learning/blob/master/screenshots/Scan.png?raw=true)|![](https://github.com/alvinaprianto/herbal-learning/blob/master/screenshots/Result.png?raw=true)
+![](https://github.com/alvinaprianto/herbal-learning/blob/master/screenshots/Home - 7.png?raw=true)|![](https://github.com/alvinaprianto/herbal-learning/blob/master/screenshots/Scan.png?raw=true)|![](https://github.com/alvinaprianto/herbal-learning/blob/master/screenshots/Result.png?raw=true)
 
 
 ## Other projects
